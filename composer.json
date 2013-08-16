@@ -1,0 +1,23 @@
+{
+    "name": "ditto/jquery-bundle",
+    "type": "ditto-bundle",
+    "description": "A Ditto framework bundle for the jQuery JS library",
+    "keywords": ["library", "javascript"],
+    "homepage": "http://github.com/mcwebb/jquery-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Matthew Webb",
+            "email": "matthewowebb@gmail.com",
+            "role": "Maintainer"
+        }
+    ],
+    "require": {
+        "ditto/ditto": ">=0.3"
+    },
+    "autoload": {
+        "psr-0": {
+            "Ditto\\jQuery\\": "src"
+        }
+    }
+}
