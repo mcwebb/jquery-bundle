@@ -187,6 +187,8 @@ class Bundle extends \Ditto\Core\Bundle {
 				);
 			else trigger_error("Ditto\jQuery cannot load version $version of jQuery migrate, as the corresponding file does not exist, or is incorrectly named.");
 		}
+
+		return $this;
 	}
 
 	public function migrate($version = null) {
@@ -203,5 +205,7 @@ class Bundle extends \Ditto\Core\Bundle {
 				self::$root ."plugins/jquery.{$plugin}.{$pathAffix}js"
 			);
 		else trigger_error("Ditto\jQuery cannot load $plugin jQuery plugin, as the corresponding file does not exist, or is incorrectly named.");
+
+		return $this;
 	}
 }
