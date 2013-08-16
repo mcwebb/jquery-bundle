@@ -180,12 +180,12 @@ class Bundle extends \Ditto\Core\Bundle {
 	public function plugins(array $plugins) {
 		foreach ($plugins as $plugin) {
 			if (file_exists(
-				self::$root_abs ."plugins/jquery-migrate-{$version}.js"
+				self::$root_abs ."plugins/jquery.{$plugin}.js"
 			))
 				Engine::addGlobalScript(
-					self::$root ."plugins/jquery-migrate-{$version}.js"
+					self::$root ."plugins/jquery.{$plugin}.js"
 				);
-			else trigger_error("Ditto\jQuery cannot load version $version of jQuery migrate, as the corresponding file does not exist, or is incorrectly named.");
+			else trigger_error("Ditto\jQuery cannot load $plugin jQuery plugin, as the corresponding file does not exist, or is incorrectly named.");
 		}
 
 		return $this;
@@ -199,12 +199,12 @@ class Bundle extends \Ditto\Core\Bundle {
 		else $pathAffix = 'min.';
 		
 		if (file_exists(
-			self::$root_abs ."migrate/jquery.{$plugin}.{$pathAffix}js"
+			self::$root_abs ."migrate/jquery-migrate-{$version}.{$pathAffix}js"
 		))
 			Engine::addGlobalScript(
-				self::$root ."plugins/jquery.{$plugin}.{$pathAffix}js"
+				self::$root ."migrate/jquery-migrate-{$version}.{$pathAffix}js"
 			);
-		else trigger_error("Ditto\jQuery cannot load $plugin jQuery plugin, as the corresponding file does not exist, or is incorrectly named.");
+		else trigger_error("Ditto\jQuery cannot load version $version of jQuery migrate, as the corresponding file does not exist, or is incorrectly named.");
 
 		return $this;
 	}
