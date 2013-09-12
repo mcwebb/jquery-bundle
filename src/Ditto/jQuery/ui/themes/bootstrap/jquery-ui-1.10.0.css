@@ -7,6 +7,13 @@
  *
  * Portions copyright jQuery UI & Twitter Bootstrap
  */
+/*MATTHEW ADDITIONS:*/
+ .ui-autocomplete-category {
+    font-weight: bold;
+    padding: .2em .4em;
+    margin: .8em 0 .2em;
+    line-height: 1.5;
+  }
 
 
 /* Layout helpers
