@@ -164,6 +164,7 @@ class Bundle extends \Ditto\Core\Bundle {
 		if (file_exists(
 			self::$root_abs ."ui/themes/$theme/jquery-ui-1.10.0.css"
 		)) $this->theme = $theme;
+		return $this;
 	}
 
 	public function ui(array $modules, $version = null) {
@@ -174,7 +175,7 @@ class Bundle extends \Ditto\Core\Bundle {
 		else $pathAffix = 'min.';
 
 		Engine::addGlobalStyle(
-			self::$root . "ui/themes/{$this->theme}/jquery-ui-1.10.0.$pathAffixcss"
+			self::$root . "ui/themes/{$this->theme}/jquery-ui-1.10.0.{$pathAffix}css"
 		);
 
 		foreach ($modules as $module) {
