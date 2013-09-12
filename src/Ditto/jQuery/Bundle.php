@@ -130,6 +130,7 @@ class Bundle extends \Ditto\Core\Bundle {
 		)
 	);
 	private $loaded = array();
+	private $theme = 'smoothness';
 
 	public function construct() { }
 
@@ -159,12 +160,23 @@ class Bundle extends \Ditto\Core\Bundle {
 		return $this;
 	}
 
+	public function setTheme($theme) {
+		if (file_exists(
+			self::$root_abs ."ui/themes/$theme/jquery-ui-1.10.0.css"
+		)) $this->theme = $theme;
+	}
+
 	public function ui(array $modules, $version = null) {
 		if (empty($version))
 			$version = '1102';
 		if (Engine::getEnvironment() == 1)
 			$pathAffix = '';
 		else $pathAffix = 'min.';
+
+		Engine::addGlobalStyle(
+			self::$root . "ui/themes/{$this->theme}/jquery-ui-1.10.0.$pathAffixcss"
+		);
+
 		foreach ($modules as $module) {
 			$this->loadDependencies($module);
 			array_push($this->loaded, $module);
