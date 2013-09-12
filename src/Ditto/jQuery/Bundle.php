@@ -164,6 +164,7 @@ class Bundle extends \Ditto\Core\Bundle {
 		if (file_exists(
 			self::$root_abs ."ui/themes/$theme/jquery-ui-1.10.0.css"
 		)) $this->theme = $theme;
+		else trigger_error("Ditto\jQuery cannot find theme $theme as the corresponding file does not exist, or is incorrectly named.");
 		return $this;
 	}
 
