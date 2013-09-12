@@ -14,7 +14,8 @@ class Bundle extends \Ditto\Core\Bundle {
 		'autocomplete' => array(
 			'core',
 			'widget',
-			'position'
+			'position',
+			'menu'
 		),
 		'button' => array(
 			'core',
